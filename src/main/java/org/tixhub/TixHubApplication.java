@@ -5,9 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
 @SpringBootApplication
 public class TixHubApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(TixHubApplication.class, args);
 	}
@@ -16,5 +17,7 @@ public class TixHubApplication {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
+
 
 }

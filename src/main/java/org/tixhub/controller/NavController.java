@@ -15,4 +15,14 @@ public class NavController {
 	public String registerUserView() {
 		return "register";
 	}
+	
+	@GetMapping("/user/resetPassword")
+	public String resetPasswordView() {
+		return "resetPassword";
+	}
+	
+	@GetMapping("/user/tempPassword")
+	public String tempPasswordView() {
+		return "tempPassword";
+	}
 }

@@ -25,7 +25,7 @@ import org.tixhub.security.jwt.JwtAuthorizationFilter;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	private static final String[] PUBLIC_URLS = { "/", "/css/**", "/js/**","/api/events/**","/api/sports/**","/user/login", "/user/register", "user/resetpassword/**","/user/image/**","/csrf", "/v2/api-docs", "/swagger-resources/configuration/ui", "/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/configuration/security", "/swagger-ui.html", "/webjars/**"  };
+	private static final String[] PUBLIC_URLS = { "/", "/css/**", "/js/**","/api/events/**","/user/login", "/user/register", "/user/resetPassword","/user/tempPassword","/csrf", "/v2/api-docs", "/swagger-resources/configuration/ui", "/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/configuration/security", "/swagger-ui.html", "/webjars/**"  };
     private JwtAuthorizationFilter jwtAuthorizationFilter;
     private JwtAccessDeniedHandler jwtAccessDeniedHandler;
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
