@@ -1,6 +1,7 @@
 package org.tixhub.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.tixhub.dto.UserDTO;
 import org.tixhub.exception.UserDoesNotExistException;
@@ -28,5 +29,6 @@ public interface UserService {
 
     void resetPassword(String email) throws UserDoesNotExistException;
 
+    Optional<User> findUserNameAndSecurePassword(String userName, String pass);
   
 }

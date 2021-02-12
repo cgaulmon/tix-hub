@@ -20,7 +20,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 @Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
     private static final String TOKEN_PREFIX = "Bearer ";
-	private static final String OPTIONS_HTTP_METHOD = "OPTIONS";
 	private JWTTokenProvider jwtTokenProvider;
 
     public JwtAuthorizationFilter(JWTTokenProvider jwtTokenProvider) {
@@ -29,13 +28,13 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (request.getMethod().equalsIgnoreCase(OPTIONS_HTTP_METHOD)) {
+        if (request.getMethod().equalsIgnoreCase("OPTIONS")) {
             response.setStatus(OK.value());
         } else {
             String authorizationHeader = request.getHeader(AUTHORIZATION);
             if (authorizationHeader == null || !authorizationHeader.startsWith(TOKEN_PREFIX)) {
-                filterChain.doFilter(request, response);
-                return;
+            	filterChain.doFilter(request, response); 
+            	return;
             }
             String token = authorizationHeader.substring(TOKEN_PREFIX.length());
             String username = jwtTokenProvider.getSubject(token);

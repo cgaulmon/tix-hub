@@ -25,4 +25,14 @@ public class NavController {
 	public String tempPasswordView() {
 		return "tempPassword";
 	}
+	
+	@GetMapping("/user/login")
+	public String getLoginView() {
+		return "login";
+	}
+	
+	@GetMapping("/user/logout")
+	public String getLogout() {
+		return "redirect:/user/login";
+	}
 }

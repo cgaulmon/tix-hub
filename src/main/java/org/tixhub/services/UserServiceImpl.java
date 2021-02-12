@@ -1,6 +1,7 @@
 package org.tixhub.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,11 +12,19 @@ import org.tixhub.dto.UserDTO;
 import org.tixhub.exception.UserDoesNotExistException;
 import org.tixhub.exception.UsernameExistException;
 import org.tixhub.jpa.entity.User;
+import org.tixhub.jpa.repository.UserRepository;
 import org.tixhub.security.domain.UserPrincipal;
 
 @Service
 @Qualifier("userDetailsService")
 public class UserServiceImpl implements UserService, UserDetailsService {
+
+	private UserRepository userRepository;
+	
+	public UserServiceImpl(UserRepository userRepository) {
+		super();
+		this.userRepository = userRepository;
+	}
 
 	@Override
 	public UserDTO register(UserDTO user) throws UsernameExistException {
@@ -75,6 +84,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Optional<User> findUserNameAndSecurePassword(String userName, String pass) {
+		pass = encryptPassword(pass);
+		return userRepository.findByUserNameAndPassword(userName, pass);
+	}
+
+	private String encryptPassword(String pass) {
+		return pass;
 	}
 
 }
