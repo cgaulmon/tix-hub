@@ -1,6 +1,7 @@
 package org.tixhub.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -35,4 +36,11 @@ public class NavController {
 	public String getLogout() {
 		return "redirect:/user/login";
 	}
+	
+	@GetMapping("/events")
+	public String getEventsView(ModelMap map) {
+		return "events";
+	}
 }
+
+
