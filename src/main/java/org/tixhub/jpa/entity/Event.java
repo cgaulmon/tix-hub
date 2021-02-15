@@ -16,7 +16,8 @@ public class Event {
 	@Id
 	private long id;
 	private String name;
-	private String description;
+	private String shortDescription;
+	private String longDescription;
 	@Temporal(TemporalType.DATE)
 	private Date eventDate;
 	private double price;

@@ -3,6 +3,7 @@ package org.tixhub.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class NavController {
@@ -40,6 +41,11 @@ public class NavController {
 	@GetMapping("/events")
 	public String getEventsView(ModelMap map) {
 		return "events";
+	}
+	
+	@GetMapping("/events/{id}")
+	public String getEventDetailsView(@PathVariable int id) {
+		return "event_detail";
 	}
 }
 

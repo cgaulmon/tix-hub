@@ -28,8 +28,9 @@
     background-size: cover;
     margin-bottom: .5em;
 }
+
 .page-title {
-    padding-top: 0.5em;
+    padding-top: .5em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid #2c3e50;
 }
@@ -60,7 +61,7 @@
 		</div>
 	</nav>
 	<section id="greeting" class="container py-2">
-		<h1 class="page-title text-primary">View Events</h1>
+		<h2 class="page-title text-primary">Event Details</h2>
 		
 	</section>
 
@@ -68,23 +69,31 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="card w-75 my-2">
+				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">Event 1</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Button</a>
+					<div class="row">
+						<div class="col-md-4">
+						</div>
+						<div class="col-md-8">
+						<h3 class="card-title">Event 1</h3>
+						<section id="event_short_description">
+						<p class="card-text">in fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium</p>
+							
+						<a href="#" class="btn btn-primary">RSVP</a>
+						</section>
+						
+						<section>
+						<b><span th:text="${#dates.format(#dates.createNow(), 'MMMM dd, yyyy hh:mm:a')}"></span></b>
+						</section>
+						<section id="event_long_description">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi. Placerat in egestas erat imperdiet sed. Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Lectus nulla at volutpat diam ut venenatis tellus in. Faucibus a pellentesque sit amet porttitor eget. Turpis cursus in hac habitasse platea. Quam id leo in vitae turpis massa. Egestas sed sed risus pretium quam vulputate. Aliquet porttitor lacus luctus accumsan tortor posuere. Sed libero enim sed faucibus turpis in. Volutpat est velit egestas dui id ornare arcu odio. At lectus urna duis convallis convallis. Cras semper auctor neque vitae. Sed risus pretium quam vulputate dignissim suspendisse in. Aliquam ultrices sagittis orci a scelerisque purus semper eget. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae.</p>
+						</section>
+						</div>
+					</div>
+						
 					</div>
 				</div>
 				
-				<div class="card w-75 my-3">
-					<div class="card-body">
-						<h5 class="card-title">Event 2</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Button</a>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
