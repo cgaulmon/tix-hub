@@ -72,21 +72,21 @@
 				<div class="card">
 					<div class="card-body">
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-2">
 						</div>
-						<div class="col-md-8">
-						<h3 class="card-title">Event 1</h3>
+						<div class="col-md-10">
+						<h3 class="card-title" th:text="${event.name}"></h3>
 						<section id="event_short_description">
-						<p class="card-text">in fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium</p>
+						<p class="card-text" th:text="${event.shortDescription}">in fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl vel pretium</p>
 							
 						<a href="#" class="btn btn-primary">RSVP</a>
 						</section>
 						
-						<section>
+						<section class="py-2">
 						<b><span th:text="${#dates.format(#dates.createNow(), 'MMMM dd, yyyy hh:mm:a')}"></span></b>
 						</section>
 						<section id="event_long_description">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor id eu nisl nunc mi. Placerat in egestas erat imperdiet sed. Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Lectus nulla at volutpat diam ut venenatis tellus in. Faucibus a pellentesque sit amet porttitor eget. Turpis cursus in hac habitasse platea. Quam id leo in vitae turpis massa. Egestas sed sed risus pretium quam vulputate. Aliquet porttitor lacus luctus accumsan tortor posuere. Sed libero enim sed faucibus turpis in. Volutpat est velit egestas dui id ornare arcu odio. At lectus urna duis convallis convallis. Cras semper auctor neque vitae. Sed risus pretium quam vulputate dignissim suspendisse in. Aliquam ultrices sagittis orci a scelerisque purus semper eget. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae.</p>
+						<p th:text="${event.longDescription}"></p>
 						</section>
 						</div>
 					</div>

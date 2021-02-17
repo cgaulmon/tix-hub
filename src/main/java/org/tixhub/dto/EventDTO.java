@@ -15,7 +15,8 @@ public class EventDTO {
 
 	private long id;
 	private String name;
-	private String description;
+	private String shortDescription;
+	private String longDescription;
 	private double price;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy", timezone = "US/Central")
 	private Date eventDate;
@@ -23,7 +24,8 @@ public class EventDTO {
 	public EventDTO(Event event) {
 		this.eventDate = event.getEventDate();
 		this.name = event.getName();
-		this.description = event.getDescription();
+		this.shortDescription = event.getShortDescription();
+		this.longDescription = event.getLongDescription();
 		this.price = event.getPrice();
 		this.eventDate = event.getEventDate();
 	}

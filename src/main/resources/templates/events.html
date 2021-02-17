@@ -67,21 +67,11 @@
 	<section class="container py-2">
 
 		<div class="row">
-			<div class="col-md-12">
-				<div class="card w-75 my-2">
+			<div class="col-md-12" th:each="event: ${events}">
+				<div class="card w-75 my-2" >
 					<div class="card-body">
-						<h5 class="card-title">Event 1</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Button</a>
-					</div>
-				</div>
-				
-				<div class="card w-75 my-3">
-					<div class="card-body">
-						<h5 class="card-title">Event 2</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
+						<h5 class="card-title"><a th:href="@{events/{id}(id = ${event.id})}" th:text="${event.name}"></a></h5>
+						<p class="card-text" th:text="${event.shortDescription}">
 						<a href="#" class="btn btn-primary">Button</a>
 					</div>
 				</div>

@@ -4,9 +4,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.tixhub.services.EventService;
 
 @Controller
 public class NavController {
+
+	private EventService eventService;
+	
+	public NavController(EventService eventService) {
+		super();
+		this.eventService = eventService;
+	}
 
 	@GetMapping({ "", "/" })
 	public String getHomeView() {
@@ -40,11 +48,13 @@ public class NavController {
 	
 	@GetMapping("/events")
 	public String getEventsView(ModelMap map) {
+		map.put("events", eventService.findAll());
 		return "events";
 	}
 	
 	@GetMapping("/events/{id}")
-	public String getEventDetailsView(@PathVariable int id) {
+	public String getEventDetailsView(@PathVariable("id") int id, ModelMap map) {
+		map.put("event",eventService.findById(id));
 		return "event_detail";
 	}
 }

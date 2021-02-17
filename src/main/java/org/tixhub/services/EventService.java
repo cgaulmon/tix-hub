@@ -1,5 +1,6 @@
 package org.tixhub.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class EventService {
 		} else {
 			return null;
 		}
+	}
+
+	public List<Event> findAll() {
+		return eventRepository.findAll();
 	}
 	
 	
