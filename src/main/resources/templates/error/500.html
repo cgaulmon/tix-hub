@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>TixHub Event Portal</title>
+<link rel="stylesheet"
+	th:href="@{/css/bootstrap/flatly/bootstrap.min.css}" />
+<script type="text/javascript"
+	th:src="@{/js/jquery/jquery-3.5.1.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<script>
+	$(document).ready(function() {
+		$("#invalidCredAlertCloseBtn").click(function() {
+			$("#invalidCredentialsAlert").removeClass('show');
+		});
+
+		$("#loginBtn").click(function() {
+			$("#invalidCredentialsAlert").addClass('show');
+			window.location.replace("/");
+		});
+	});
+</script>
+<style>
+.event_image {
+    width: 100%;
+    padding-bottom: 56.25%;
+    background-size: cover;
+    margin-bottom: .5em;
+}
+.page-title {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #2c3e50;
+}
+</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="/">TixHub</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarColor01" aria-controls="navbarColor01"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="/events">Events</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span>
+						Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<section id="greeting" class="container py-2">
+		<h1 class="page-title text-danger">Error</h1>
+		
+	</section>
+
+</body>
+</html>
