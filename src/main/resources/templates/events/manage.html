@@ -23,15 +23,16 @@
 </script>
 <style>
 .event_image {
-    width: 100%;
-    padding-bottom: 56.25%;
-    background-size: cover;
-    margin-bottom: .5em;
+	width: 100%;
+	padding-bottom: 56.25%;
+	background-size: cover;
+	margin-bottom: .5em;
 }
+
 .page-title {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid #2c3e50;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #2c3e50;
 }
 </style>
 
@@ -54,14 +55,38 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span>
-						Login</a></li>
+				<li><a href="/user/login"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			</ul>
 		</div>
 	</nav>
 	<section id="greeting" class="container py-2">
-		<h1 class="page-title text-danger">Error</h1>
-		
+		<h1 class="page-title text-primary">View Events</h1>
+
+	</section>
+
+	<section class="container py-2">
+
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table" aria-describedby="my events">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Event Date</th>
+							<th># of Tickets</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="event: ${events}">
+							<td><a href="/events/id"><span th:text="${event.name}"></span></a></td>
+							<td th:text="${event.eventDate}"></td>
+							<td th:text="4"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</section>
 
 </body>

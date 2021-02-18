@@ -21,7 +21,7 @@
 				<li class="nav-item active"><a class="nav-link" href="/">Home
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+				<li class="nav-item"><a class="nav-link" href="/events">Events</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
       			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -34,29 +34,34 @@
 				<div class="col-md-8">
 					<div class="card">
 						<div class="card-header">
-							<div>Register New User</div>						
-						<span>* notes: Required fields</span>
+							<div>Create New Event</div>
 						</div>
 						<div class="card-body">
 
 							<div class="form-group">
-								<label>UserId: </label> 
+								<label>Event Name: </label> 
 								<input id="userId" class="form-control form-control-lg" type="text" required="required" />
 							</div>
 							<div class="form-group">
-								<label>First Name: </label> 
-								<input id="firstName"  class="form-control form-control-lg" type="text" required="required" />
+								<label>Date: </label> 
+								<input id="eventDate" class="form-control form-control-lg" type="date" required="required" />
 							</div>
 							<div class="form-group">
-								<label>Last Name:</label> 
-								<input id="lastName" class="form-control form-control-lg" type="text"  required="required"/>
+								<label># of Tickets: </label> 
+								<input id="numberOfTickets" class="form-control form-control-lg" type="number"  required="required" />
 							</div>
 							<div class="form-group">
-								<label>Password: </label> 
-								<input id="password" class="form-control form-control-lg" type="password"  required="required" />
+								<label>Short Description</label> 
+								<textarea class="form-control"></textarea>
+								
+							</div>
+							<div class="form-group">
+								<label>Long Description</label> 
+								<textarea class="form-control" rows="6"></textarea>
+								
 							</div>
 							<input type="submit" id="submitBtn"
-								class="btn btn-lg btn-primary" value="Register">
+								class="btn btn-lg btn-primary" value="Save">
 
 
 						</div>

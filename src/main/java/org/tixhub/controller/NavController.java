@@ -57,6 +57,16 @@ public class NavController {
 		map.put("event",eventService.findById(id));
 		return "event_detail";
 	}
+	
+	@GetMapping("/events/create")
+	public String getCreateEventView() {
+		return "events/new";
+	}
+	
+	@GetMapping("/events/manage")
+	public String getManageView() {
+		return "events/manage";
+	}
 }
 
 
