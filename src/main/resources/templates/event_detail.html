@@ -15,19 +15,19 @@
 
 $.validator.setDefaults({
 	submitHandler: function(form) {
-		form.submit();
+		$('#exampleModal').modal('toggle');
+		var email = $("#email").val();
+		var rsvpMessageHTML = "<strong>RSVP Complete!</strong> An email has been sent to: " + email;
+		$("#rsvpMsgSpan").html(rsvpMessageHTML);
+		$("#rsvpSuccessAlert").addClass('show');
 	}
 });
 
 	$(document).ready(function() {
-		$("#invalidCredAlertCloseBtn").click(function() {
-			$("#invalidCredentialsAlert").removeClass('show');
+		$("#invalidCredAlertCloseBtn").click(function(){
+			$("#rsvpSuccessAlert").removeClass('show');
 		});
-
-		$("#loginBtn").click(function() {
-			$("#invalidCredentialsAlert").addClass('show');
-			window.location.replace("/");
-		});
+		
 		
 		$("#rsvpForm").validate({
 			rules: {
@@ -93,6 +93,12 @@ form .error {
 	</section>
 
 	<section class="container py-2">
+		<div id="rsvpSuccessAlert" class="alert alert-success alert-dismissible fade" role="alert">
+  		<span id="rsvpMsgSpan"></span>
+  		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  		</button>
+		</div>
 
 		<div class="row">
 			<div class="col-md-12">
