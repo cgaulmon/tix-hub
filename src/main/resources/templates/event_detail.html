@@ -9,7 +9,16 @@
 	th:src="@{/js/jquery/jquery-3.5.1.min.js}"></script>
 <script type="text/javascript"
 	th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/js/jquery-validation/jquery.validate.min.js}"></script>
 <script>
+
+$.validator.setDefaults({
+	submitHandler: function() {
+		alert("submitted!");
+	}
+});
+
 	$(document).ready(function() {
 		$("#invalidCredAlertCloseBtn").click(function() {
 			$("#invalidCredentialsAlert").removeClass('show');
@@ -18,6 +27,20 @@
 		$("#loginBtn").click(function() {
 			$("#invalidCredentialsAlert").addClass('show');
 			window.location.replace("/");
+		});
+		
+		$("#rsvpForm").validate({
+			rules: {
+				numOfTickets: "required",
+				name: "required",
+				email: {required: true, email: true}
+				
+			},
+			messages: {
+				numOfTickets: "Enter a number",
+				name: "Please enter a name",
+				email: "Please enter your valid email"
+			}
 		});
 	});
 </script>
@@ -33,6 +56,10 @@
     padding-top: .5em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid #2c3e50;
+}
+
+form .error {
+  color: #ff0000;
 }
 </style>
 
@@ -97,7 +124,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -107,25 +134,27 @@
           <span aria-hidden="true" class="text-white">&times;</span>
         </button>
       </div>
+      <form name="rsvpForm" id="rsvpForm" method="post" novalidate="novalidate">
       <div class="modal-body">
         <div class="form-group">
-			<label>Name: </label> 
-			<input id="name" class="form-control form-control-lg" type="text" required="required" />
+			<label for="name" id="nameLabel" name="nameLabel">Name: </label> 
+			<input id="name" name="name" class="form-control form-control-lg" type="text" required="required"/>
 		</div>
 		<div class="form-group">
-			<label># of Tickets: </label> 
-			<input id="numOfTickets" class="form-control form-control-lg" type="number" required="required" size="4" maxlength="4" />
+			<label for="numOfTickets" id="numOfTicketsLabel" name="numOfTicketsLabel"># of Tickets: </label> 
+			<input id="numOfTickets" name="numOfTickets" class="form-control form-control-lg" type="number" required="required" size="4" maxlength="4" />
 		</div>
 		<div class="form-group">
-			<label>Email Address: </label> 
-			<input id="email" class="form-control form-control-lg" type="email" required="required" />
+			<label for="email" id="emailLabel" name="emailLabel">Email Address: </label> 
+			<input id="email" name="email" class="form-control form-control-lg" type="email" required="required"/>
 		</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">RSVP</button>
+        <input id="rsvpBtn" type="submit" value="RSVP" class="btn btn-primary"/>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
-    </div>
+      </form>
+    </div> 
   </div>
 </div>
 
