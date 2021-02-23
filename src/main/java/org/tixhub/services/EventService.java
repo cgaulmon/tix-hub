@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.tixhub.dto.EventDTO;
+import org.tixhub.dto.EventRSVPDTO;
 import org.tixhub.jpa.entity.Event;
 import org.tixhub.jpa.repository.EventRepository;
 
@@ -30,6 +31,11 @@ public class EventService {
 
 	public List<Event> findAll() {
 		return eventRepository.findAll();
+	}
+
+	public void rsvp(EventRSVPDTO body) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
