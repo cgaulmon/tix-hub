@@ -11,7 +11,7 @@ import org.tixhub.jpa.repository.EventRepository;
 
 
 @Service
-public class EventService {
+public class EventService implements IEventService {
 
 	private EventRepository eventRepository;
 

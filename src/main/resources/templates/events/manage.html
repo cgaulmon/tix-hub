@@ -69,15 +69,15 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table" aria-describedby="my events">
+				<table id="eventListTable" class="table" aria-describedby="my events">
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Event Date</th>
-							<th># of Tickets</th>
+							<th id="nameHeading">Name</th>
+							<th id="eventDateHeading">Event Date</th>
+							<th id="numTicketsHeading"># of Tickets</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="eventListBody">
 						<tr th:each="event: ${events}">
 							<td><a href="/events/id"><span th:text="${event.name}"></span></a></td>
 							<td th:text="${event.eventDate}"></td>
