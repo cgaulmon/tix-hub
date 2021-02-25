@@ -3,10 +3,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>TixHub Event Portal</title>
+<section th:fragment="includes">
 <link rel="stylesheet" th:href="@{/css/bootstrap/flatly/bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/fontawesome/css/all.css}" />
 <script type="text/javascript" th:src="@{/js/jquery/jquery-3.5.1.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-validation/jquery.validate.min.js}"></script>
+</section>
 <script>
 	$(document).ready(function(){
 		$("#invalidCredAlertCloseBtn").click(function(){
