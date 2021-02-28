@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Create Event</title>
-<section th:replace="header::includes"/>
+<section th:replace="header::includes"/>	
 <script>
 
 $.validator.setDefaults({
@@ -13,6 +13,27 @@ $.validator.setDefaults({
 		var rsvpMessageHTML = "<strong>RSVP Complete!</strong> An email has been sent to: " + email;
 		$("#rsvpMsgSpan").html(rsvpMessageHTML);
 		$("#rsvpSuccessAlert").addClass('show');
+		
+		var body = {
+					name: $("#eventName").val(),
+					eventDate: moment($("#eventDate").val(),"YYYY-MM-DD").format("MM-DD-YYYY") + " " + $("#eventTime").val(),
+					shortDescription: $("#shortDescription").val(),
+					longDescription: $("#longDescription").val(),
+					numberOfTickets: $("#numOfTickets").val()						
+			};
+		console.log("testBody", body);
+		
+		$.ajax({
+			url: "/api/events/create",
+			type: "POST",
+			data: JSON.stringify(body),
+			contentType: "application/json; charset=utf-8",
+			success: function() {
+				console.log("done");
+				
+			}
+			
+		});
 	}
 });
 
@@ -21,17 +42,12 @@ $.validator.setDefaults({
 			$("#rsvpSuccessAlert").removeClass('show');
 		});
 		
-		
-		var padNumber = function(num) {
-			return num < 9 ? num.toString().padStart(2,'0') : num;
-		}
-		
-		var d = new Date();
-		var day = padNumber(d.getDate());
-		var month = padNumber(d.getMonth()+1);
-		var dateString = d.getFullYear() + "-" + month + "-" + day;
+		var dateString = moment().format('YYYY-MM-DD');
+		var timeString = moment().format("HH:mm");
 		
 		$("#eventDate").attr("min",dateString);
+		$("#eventDate").val(dateString);
+		$("#eventTime").val(timeString);
 		
 		$("#newEventForm").validate({
 			rules: {
@@ -42,9 +58,10 @@ $.validator.setDefaults({
 				
 			},
 			messages: {
-				numOfTickets: "Enter a number",
-				eventName: "Please enter a name",
+				numOfTickets: "Enter a number of tickets",
+				eventName: "Please enter an Event Name",
 				eventDate: "Please enter a date for your event",
+				eventTime: "Please enter a time for your event",
 				shortDescription: "Enter a short description of the event"
 			}
 		});
@@ -72,14 +89,27 @@ $.validator.setDefaults({
 								<label>Event Name: </label> 
 								<input id="eventName" name="eventName" class="form-control form-control-lg" type="text" required="required" />
 							</div>
+
 							<div class="form-group">
-								<label>Date: </label> 
-								<input id="eventDate" name="eventDate" class="form-control form-control-lg" type="date" required="required" />
+								<div class="form-row">
+									<div class="col">
+										<label>Date: </label> <input id="eventDate" name="eventDate"
+											class="form-control form-control-lg" type="date"
+											required="required" />
+									</div>
+									<div class="col">
+										<label>Time: </label> <input id="eventTime" name="eventTime"
+											class="form-control form-control-lg" type="time"
+											required="required" />
+									</div>
+								</div>
 							</div>
+
 							<div class="form-group">
-								<label># of Available Tickets: </label> 
-								<input id="numOfTickets" name="numOfTickets" class="form-control form-control-lg" type="number"  required="required" />
+								<label># of Available Tickets:</label> 
+								<input id="numOfTickets" name="numOfTickets" class="form-control form-control-lg" type="number" required="required" />
 							</div>
+							
 							<div class="form-group">
 								<label>Short Description</label> 
 								<textarea id="shortDescription" name="shortDescription" class="form-control" required="required" maxlength="100"></textarea>

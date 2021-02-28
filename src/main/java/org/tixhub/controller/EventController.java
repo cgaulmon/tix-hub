@@ -37,4 +37,9 @@ public class EventController {
 	public void rsvp(@RequestBody EventRSVPDTO body) {
 		eventService.rsvp(body);
 	}
+	
+	@PostMapping("/create")
+	public void create(@RequestBody EventDTO body) {
+		eventService.create(body);
+	}
 }
