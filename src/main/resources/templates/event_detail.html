@@ -114,9 +114,17 @@ form .error {
       </div>
       <form name="rsvpForm" id="rsvpForm" method="post" novalidate="novalidate">
       <div class="modal-body">
-        <div class="form-group">
-			<label for="name" id="nameLabel" name="nameLabel">Name: </label> 
-			<input id="name" name="name" class="form-control form-control-lg" type="text" required="required"/>
+       <div class="form-group">
+			<div class="form-row">
+					<div class="col">
+						<label>First Name: </label> <input id="firstName" name="firstName"
+							class="form-control form-control-lg" type="text" required="required" />
+					</div>
+					<div class="col">
+						<label>Last Name: </label> <input id="lastName" name="lastName"
+							class="form-control form-control-lg" type="text" required="required" />
+					</div>
+			</div>
 		</div>
 		<div class="form-group">
 			<label for="numOfTickets" id="numOfTicketsLabel" name="numOfTicketsLabel"># of Tickets: </label> 

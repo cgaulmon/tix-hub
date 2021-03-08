@@ -26,4 +26,5 @@ public class Event {
 	@Temporal(TemporalType.DATE)
 	private Date eventDate;
 	private double price;
+	private long availableTickets;
 }

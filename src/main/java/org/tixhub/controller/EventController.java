@@ -34,12 +34,12 @@ public class EventController {
 	}
 	
 	@PostMapping("/rsvp")
-	public void rsvp(@RequestBody EventRSVPDTO body) {
-		eventService.rsvp(body);
+	public ResponseEntity<EventRSVPDTO> rsvp(@RequestBody EventRSVPDTO body) {
+		return new ResponseEntity<>(eventService.rsvp(body), HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/create")
-	public void create(@RequestBody EventDTO body) {
-		eventService.create(body);
+	public ResponseEntity<EventDTO> create(@RequestBody EventDTO body) {
+		return new ResponseEntity<>(eventService.create(body), HttpStatus.CREATED);
 	}
 }

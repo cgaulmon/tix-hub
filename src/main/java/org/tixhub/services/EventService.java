@@ -35,13 +35,19 @@ public class EventService implements IEventService {
 		return eventRepository.findAll();
 	}
 
-	public void rsvp(EventRSVPDTO body) {
-		// TODO Auto-generated method stub
-		
+	public EventRSVPDTO rsvp(EventRSVPDTO body) {
+		return null;		
 	}
 
-	public void create(EventDTO body) {
-		LOGGER.info("results {} ", body);
+	public EventDTO create(EventDTO newEvent) {
+		LOGGER.info("results {} ", newEvent);
+		Event event = new Event();
+		event.setName(newEvent.getName());
+		event.setShortDescription(newEvent.getShortDescription());
+		event.setLongDescription(newEvent.getLongDescription());
+		event.setAvailableTickets(newEvent.getNumberOfTickets());
+		event.setEventDate(newEvent.getEventDate());
+		return new EventDTO(eventRepository.save(event));
 		
 	}
 	
